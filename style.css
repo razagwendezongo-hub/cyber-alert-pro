@@ -1,0 +1,143 @@
+:root{
+  --bg: #0a192f;
+  --card: #112240;
+  --ink: #e6f1ff;
+  --mute: #8892b0;
+  --line: #233554;
+  --accent: #64ffda;
+  --warn: #ffb703;
+  --danger: #ef4444;
+  --btn: #1d4ed8;
+  --btn-t: #fff;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+main{
+  max-width:600px;
+  margin:0 auto;
+  padding:16px 16px 40px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;
+}
+.logo{
+  font-weight:800;
+  font-size:1.2rem;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.badge-pro{
+  background:rgba(100,255,218,0.1);
+  color:var(--accent);
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:0.75rem;
+  font-weight:700;
+}
+
+section{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:16px;
+  box-shadow:0 4px 6px -1px rgba(0,0,0,0.2);
+}
+h2{
+  margin:0 0 12px;
+  font-size:1.1rem;
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.score-card{text-align:center;padding:10px 0}
+.score-circle{font-size:2.8rem;font-weight:800;color:var(--accent);margin-bottom:4px}
+.score-desc{color:var(--mute);font-size:0.9rem}
+
+.analytics-bar{height:10px;background:var(--bg);border-radius:5px;overflow:hidden;border:1px solid var(--line)}
+.analytics-fill{height:100%;background:var(--accent);border-radius:5px;transition:width 0.4s ease}
+
+.phishing-mail-box{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:0.85rem;line-height:1.5}
+.mail-header{border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px;color:var(--mute)}
+.danger-spot{color:var(--warn);background:rgba(255,183,3,0.1);padding:2px 6px;border-radius:4px;cursor:pointer;font-weight:600;display:inline-block;margin:2px 0}
+.danger-spot.found{color:var(--accent);background:rgba(100,255,218,0.1);text-decoration:line-through}
+
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--bg);
+  color:var(--ink);
+  font:inherit;
+}
+input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+.collab-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;max-height:160px;overflow-y:auto}
+.collab-item{display:flex;justify-content:space-between;align-items:center;background:var(--bg);padding:10px 12px;border-radius:8px;border:1px solid var(--line);font-size:0.9rem}
+.incident-item{display:flex;justify-content:space-between;align-items:center;background:rgba(239,68,68,0.1);padding:10px 12px;border-radius:8px;border:1px solid var(--danger);font-size:0.85rem}
+.status-badge{font-size:0.75rem;padding:3px 8px;border-radius:6px;font-weight:600}
+.status-badge.pending{background:rgba(255,183,3,0.15);color:var(--warn)}
+.status-badge.trained{background:rgba(100,255,218,0.15);color:var(--accent)}
+
+.badge-item{font-size:0.75rem;padding:6px 10px;border-radius:8px;font-weight:600;border:1px solid var(--line);background:rgba(100,255,218,0.1);color:var(--accent);border-color:var(--accent)}
+
+.question-box{margin-bottom:16px}
+.question-title{font-weight:600;margin-bottom:8px;font-size:0.95rem}
+.options{display:flex;flex-direction:column;gap:8px}
+.opt-btn{
+  background:var(--bg);
+  border:1px solid var(--line);
+  color:var(--ink);
+  padding:10px 14px;
+  border-radius:8px;
+  text-align:left;
+  cursor:pointer;
+  font-weight:500;
+  transition:all 0.2s;
+}
+.opt-btn:hover{border-color:var(--accent);background:rgba(100,255,218,0.05)}
+
+.go{
+  width:100%;
+  margin-top:12px;
+  padding:12px;
+  border:0;
+  border-radius:10px;
+  background:var(--btn);
+  color:var(--btn-t);
+  font-weight:700;
+  cursor:pointer;
+  transition:opacity 0.2s;
+}
+.go:hover{opacity:0.9}
+
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;padding:16px;z-index:1000}
+.modal-content{background:var(--card);border:1px solid var(--danger);padding:20px;border-radius:14px;max-width:400px;width:100%}
+
+.report-result{
+  background:var(--bg);
+  border:1px dashed var(--accent);
+  padding:14px;
+  border-radius:8px;
+  margin-top:12px;
+  font-size:0.9rem;
+  line-height:1.5;
+}

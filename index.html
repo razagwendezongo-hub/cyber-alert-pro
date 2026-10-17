@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a192f">
+<title>CyberAlert Pro - Sécurité & Sensibilisation PME</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <div class="logo">🛡️ CyberAlert Pro</div>
+    <div class="badge-pro">B2B PLATFORM</div>
+  </header>
+
+  <!-- BOUTON D'ALERTE INCIDENT (NOUVEAU) -->
+  <section style="background:rgba(239,68,68,0.1);border-color:var(--danger);">
+    <h2 style="color:var(--danger);">🚨 Cellule de Crise & Urgence</h2>
+    <p style="font-size:0.85rem;color:var(--mute);margin-top:0;">Un comportement suspect ou une cyberattaque en cours sur votre poste ?</p>
+    <button class="go" id="openAlertModal" style="background:var(--danger);margin-top:4px;">🚨 Signaler une alerte de sécurité</button>
+  </section>
+
+  <!-- TABLEAU DE BORD GLOBAL & ANALYTICS -->
+  <section>
+    <h2>📊 Analytics & Indice de Risque</h2>
+    <div class="score-card">
+      <div id="globalScore" class="score-circle">65%</div>
+      <div class="score-desc" id="scoreStatus">Niveau de risque : Moyen - Audit requis</div>
+    </div>
+    
+    <div style="margin-top:16px;">
+      <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;">
+        <span>Taux global de formation des salariés</span>
+        <span id="trainingPct" style="color:var(--accent);font-weight:700;">40%</span>
+      </div>
+      <div class="analytics-bar"><div id="analyticsFill" class="analytics-fill" style="width:40%;"></div></div>
+    </div>
+  </section>
+
+  <!-- SIMULATION DE PHISHING INTERACTIVE -->
+  <section>
+    <h2>🎣 Simulation de Phishing Interactive</h2>
+    <p style="color:var(--mute);font-size:0.85rem;margin-top:0;">Trouvez et cliquez sur les 3 indices de danger cachés dans cet e-mail suspect.</p>
+    
+    <div class="phishing-mail-box">
+      <div class="mail-header">
+        <div><b>De :</b> securite@banc-fiko.com <span class="danger-spot" onclick="findPhishIndex(1, this)">[1. Adresse suspecte]</span></div>
+        <div><b>Objet :</b> Action Immédiate Requise : Compte bloqué ! <span class="danger-spot" onclick="findPhishIndex(2, this)">[2. Urgence artificielle]</span></div>
+      </div>
+      <div class="mail-body">
+        Cher client,<br><br>
+        Votre compte bancaire a été suspendu suite à des activités suspectes. Vous devez impérativement vous connecter dans les 24 heures pour éviter la fermeture définitive.<br><br>
+        <span class="danger-spot" onclick="findPhishIndex(3, this)" style="display:inline-block;margin:6px 0;">[3. Lien vérolé : Cliquer ici pour débloquer]</span><br><br>
+        Cordialement,<br>Le Service Sécurité.
+      </div>
+    </div>
+    <p id="phishFeedback" style="font-weight:600;font-size:0.9rem;margin-top:10px;min-height:1.2em;"></p>
+  </section>
+
+  <!-- ESPACE COLLABORATEUR GAMIFIÉ -->
+  <section>
+    <h2>🎮 Espace Collaborateur & Apprentissage</h2>
+    <div id="collaboratorSpace">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;background:var(--bg);padding:10px;border-radius:8px;">
+        <div><b>Salarié :</b> Jean Dupont</div>
+        <div>🏆 Points : <span id="userPoints" style="color:var(--accent);font-weight:700;">120</span> pts</div>
+      </div>
+      
+      <div class="question-box">
+        <div class="question-title">Module : Créer un mot de passe indestructible</div>
+        <p style="color:var(--mute);font-size:0.85rem;margin-top:0;">Utilisez au moins 12 caractères combinant majuscules, minuscules, chiffres et symboles.</p>
+        <button class="go" id="completeModuleBtn" style="margin-top:8px;">Valider le module (+50 pts) ✅</button>
+      </div>
+
+      <div style="margin-top:14px;">
+        <h3 style="font-size:0.9rem;color:var(--mute);margin-bottom:6px;">Badges débloqués :</h3>
+        <div id="badgesBox" style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="badge-item earned">🛡️ Débutant Vigilant</span>
+          <span class="badge-item earned" id="phishBadge" style="opacity:0.4;">🎣 Chasseur de Phishing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE D'AUTODIAGNOSTIC PME (10 QUESTIONS) & RAPPORT PDF -->
+  <section id="auditSection">
+    <h2>🏢 Audit Éclair PME (10 Questions)</h2>
+    <p style="color:var(--mute);font-size:0.85rem;margin-top:0;">Évaluez en profondeur la cybersécurité de votre structure.</p>
+    
+    <div id="auditContainer">
+      <div class="question-box">
+        <div class="question-title" id="qTitle">1. Vos données critiques font-elles l'objet de sauvegardes hors-ligne régulières ?</div>
+        <div class="options" id="qOptions"></div>
+      </div>
+    </div>
+    <div id="auditResult"></div>
+  </section>
+
+  <!-- GESTION ADMIN & INCIDENTS (MIS À JOUR) -->
+  <section>
+    <h2>👥 Gestion Admin & Incidents</h2>
+    
+    <!-- Liste des alertes d'incidents reçues (NOUVEAU) -->
+    <div style="margin-bottom:16px;">
+      <h3 style="font-size:0.9rem;color:var(--danger);margin-bottom:6px;">🚨 Alertes de sécurité en temps réel :</h3>
+      <ul id="incidentList" class="collab-list">
+        <li style="color:var(--mute);font-size:0.85rem;">Aucun incident signalé pour le moment.</li>
+      </ul>
+    </div>
+
+    <div class="row2" style="margin-bottom:10px;">
+      <div>
+        <label for="collabName" style="font-size:0.8rem;color:var(--mute);margin-bottom:4px;display:block;">Nom du salarié</label>
+        <input id="collabName" type="text" placeholder="Ex: Aminata Diallo" autocomplete="off">
+      </div>
+      <div>
+        <label for="collabEmail" style="font-size:0.8rem;color:var(--mute);margin-bottom:4px;display:block;">E-mail professionnel</label>
+        <input id="collabEmail" type="email" placeholder="a.diallo@entreprise.com" autocomplete="off">
+      </div>
+    </div>
+    <button class="go" id="addCollabBtn" style="margin-top:0;">Inscrire le collaborateur</button>
+
+    <div style="margin-top:16px;">
+      <ul id="collabList" class="collab-list"></ul>
+    </div>
+  </section>
+</main>
+
+<!-- MODALE DE SIGNALEMENT D'URGENCE (NOUVEAU) -->
+<div id="alertModal" class="modal-overlay" style="display:none;">
+  <div class="modal-content">
+    <h3 style="color:var(--danger);margin-top:0;">🚨 Signaler un incident de sécurité</h3>
+    <p style="font-size:0.85rem;color:var(--mute);">Décrivez rapidement le problème rencontré. Le responsable IT sera alerté instantanément.</p>
+    <textarea id="incidentDesc" rows="3" placeholder="Ex: J'ai cliqué sur un lien suspect ou mon écran est bloqué..." style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-bottom:12px;font:inherit;resize:none;"></textarea>
+    <div style="display:flex;gap:10px;">
+      <button class="go" id="submitIncident" style="background:var(--danger);">Envoyer l'alerte</button>
+      <button class="go" id="closeModal" style="background:var(--bg);border:1px solid var(--line);">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
