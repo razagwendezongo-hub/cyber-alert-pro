@@ -1,4 +1,3 @@
-// --- CONFIGURATION FIREBASE ---
 const FIREBASE_DB_URL = "https://depense-family-default-rtdb.europe-west1.firebasedatabase.app/";
 
 let currentQ = 0;
@@ -8,7 +7,6 @@ let phishFoundCount = 0;
 
 document.getElementById("userPoints").textContent = userPoints;
 
-// --- GESTION DE LA MODALE D'ALERTE INCIDENT ---
 const modal = document.getElementById("alertModal");
 document.getElementById("openAlertModal").onclick = () => { modal.style.display = "flex"; };
 document.getElementById("closeModal").onclick = () => { modal.style.display = "none"; };
@@ -63,7 +61,6 @@ function fetchIncidentsFromFirebase() {
     .catch(err => console.error("Erreur chargement incidents:", err));
 }
 
-// --- SIMULATION DE PHISHING INTERACTIVE ---
 function findPhishIndex(id, element) {
   if (element.classList.contains("found")) return;
   element.classList.add("found");
@@ -97,7 +94,6 @@ document.getElementById("completeModuleBtn").onclick = () => {
   btn.disabled = true;
 };
 
-// --- AUTODIAGNOSTIC PME (10 QUESTIONS) ---
 const questions = [
   { title: "1. Vos données critiques font-elles l'objet de sauvegardes hors-ligne régulières ?", opts: [{ text: "Oui, automatisées et isolées", pts: 3 }, { text: "Locales sur le même réseau", pts: 1 }, { text: "Aucune sauvegarde", pts: 0 }] },
   { title: "2. Utilisez-vous l'authentification multifacteur (MFA) pour vos accès ?", opts: [{ text: "Oui, sur tous les services", pts: 3 }, { text: "Partiellement", pts: 1 }, { text: "Non", pts: 0 }] },
@@ -178,7 +174,6 @@ function restartAudit() {
   loadQuestion();
 }
 
-// --- GESTION ADMIN & FIREBASE ---
 let collaborators = [];
 
 function fetchCollaboratorsFromFirebase() {
@@ -244,7 +239,6 @@ document.getElementById("addCollabBtn").onclick = () => {
   .catch(err => alert("Erreur lors de l'enregistrement : " + err));
 };
 
-// Initialisation au chargement
 window.onload = () => {
   loadQuestion();
   fetchCollaboratorsFromFirebase();

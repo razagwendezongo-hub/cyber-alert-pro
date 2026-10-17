@@ -14,14 +14,12 @@
     <div class="badge-pro">B2B PLATFORM</div>
   </header>
 
-  <!-- BOUTON D'ALERTE INCIDENT (NOUVEAU) -->
   <section style="background:rgba(239,68,68,0.1);border-color:var(--danger);">
     <h2 style="color:var(--danger);">🚨 Cellule de Crise & Urgence</h2>
     <p style="font-size:0.85rem;color:var(--mute);margin-top:0;">Un comportement suspect ou une cyberattaque en cours sur votre poste ?</p>
     <button class="go" id="openAlertModal" style="background:var(--danger);margin-top:4px;">🚨 Signaler une alerte de sécurité</button>
   </section>
 
-  <!-- TABLEAU DE BORD GLOBAL & ANALYTICS -->
   <section>
     <h2>📊 Analytics & Indice de Risque</h2>
     <div class="score-card">
@@ -38,10 +36,9 @@
     </div>
   </section>
 
-  <!-- SIMULATION DE PHISHING INTERACTIVE -->
   <section>
     <h2>🎣 Simulation de Phishing Interactive</h2>
-    <p style="color:var(--mute);font-size:0.85rem;margin-top:0;">Trouvez et cliquez sur les 3 indices de danger cachés dans cet e-mail suspect.</p>
+    <p style="color:var(--mute);font-size:0.85rem;margin-top:0;">Analysez cet e-mail suspect et identifiez les anomalies de sécurité.</p>
     
     <div class="phishing-mail-box">
       <div class="mail-header">
@@ -58,7 +55,6 @@
     <p id="phishFeedback" style="font-weight:600;font-size:0.9rem;margin-top:10px;min-height:1.2em;"></p>
   </section>
 
-  <!-- ESPACE COLLABORATEUR GAMIFIÉ -->
   <section>
     <h2>🎮 Espace Collaborateur & Apprentissage</h2>
     <div id="collaboratorSpace">
@@ -83,7 +79,6 @@
     </div>
   </section>
 
-  <!-- MODULE D'AUTODIAGNOSTIC PME (10 QUESTIONS) & RAPPORT PDF -->
   <section id="auditSection">
     <h2>🏢 Audit Éclair PME (10 Questions)</h2>
     <p style="color:var(--mute);font-size:0.85rem;margin-top:0;">Évaluez en profondeur la cybersécurité de votre structure.</p>
@@ -97,11 +92,9 @@
     <div id="auditResult"></div>
   </section>
 
-  <!-- GESTION ADMIN & INCIDENTS (MIS À JOUR) -->
   <section>
     <h2>👥 Gestion Admin & Incidents</h2>
     
-    <!-- Liste des alertes d'incidents reçues (NOUVEAU) -->
     <div style="margin-bottom:16px;">
       <h3 style="font-size:0.9rem;color:var(--danger);margin-bottom:6px;">🚨 Alertes de sécurité en temps réel :</h3>
       <ul id="incidentList" class="collab-list">
@@ -127,7 +120,6 @@
   </section>
 </main>
 
-<!-- MODALE DE SIGNALEMENT D'URGENCE (NOUVEAU) -->
 <div id="alertModal" class="modal-overlay" style="display:none;">
   <div class="modal-content">
     <h3 style="color:var(--danger);margin-top:0;">🚨 Signaler un incident de sécurité</h3>
